@@ -37,7 +37,7 @@ class SriLankaController extends EmailController
     public function testRedis(Request $request)
     {
         $data = $request -> input();
-        return $data; 
+        return $data;
         return 'aaaaaabbbbbbbbbbbbcccccccccc';
 
 //        $redis = app('redis.connection');

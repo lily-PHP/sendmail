@@ -110,7 +110,7 @@ return [
          * 默认的订单数据和队列库
          */
         'default' => [
-            'host' => '10.10.30.202',
+            'host' => '47.74.214.40',
             'password' => 'NxRNaSE0VD8PxuXU',
             'port' => 6379,
             'database' => 0,

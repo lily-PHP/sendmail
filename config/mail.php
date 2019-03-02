@@ -18,7 +18,7 @@ $conf = [
         'port' => 25,
         'from' => [
             'address' => 'lilyphpteam@163.com',
-            'name' => 'lily',
+            'name' => 'Mall Team',
         ],
         'encryption' => 'tls',
         'username' => 'lilyphpteam@163.com',

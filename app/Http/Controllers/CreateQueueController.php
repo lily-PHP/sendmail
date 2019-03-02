@@ -108,6 +108,7 @@ class CreateQueueController extends Controller
         $ret['msg'] = '创建发送失败,无法加入消息队列';
         if($redis->lpush($queueName, $id) && $redis-> hmset($id, $arr)){
             $ret['msg'] = '创建发送成功';
+            $ret['success'] = true;
         };
 
         // 如果不存在锁,则调用

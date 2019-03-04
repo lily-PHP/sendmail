@@ -89,7 +89,7 @@ class EmailController extends Controller
                         $mqList[$k] = empty($v)? 'null' : $v;
                     }
 //                    var_dump($mqList); die;
-                    $mailContent = ['toName' => $mqList['toName'], 'url' => $mqList['content']];
+                    $mailContent = ['toName' => $mqList['toName'], 'url' => json_decode($mqList['content'])];
                     if(!Mail::to($mqList['toMail'])->send(new baseEmail([
                         'view'=> $info['view'],
                         'title'=> $info['title'],

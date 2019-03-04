@@ -9,12 +9,12 @@
 </head>
 <style>
     html,body,div{font-family:"微软雅黑"; font-size: 18px;padding: 0;margin: 0;color: #666; box-sizing:border-box;}
-    .big_box{
+    /*.big_box{
         position:absolute;
         top:50%;
         left:50%;
         transform: translate(-50%,-50%);//通过变形来搞定
-    }
+    }*/
     .title{font-size: 34px; margin-bottom: 15px; font-weight: bold;}
     .first_line{margin-bottom: 5px;}
     .second_line{margin-bottom: 15px;}
@@ -54,9 +54,9 @@
     <div class="second_line">
         Please confirm your email address to complete your application.
     </div>
-    <a href="#"><button class="btn">Confirm your email</button></a>
+    <a href="https://{{$data['url']}}" target="_blank"><button class="btn">Confirm your email</button></a>
     <div class="note">please note: this confirmation only valid within 24 hours!!!</div>
-    <div class="note2">if the above button doesn't work, please use this link: <a href="{{$data['url']}}" style="padding-left: 5px; padding-right: 10px;">{{$data['url']}}</a>for confirmation directly~~~</div>
+    <div class="note2">if the above button doesn't work, please use this link: <a href="https://{{$data['url']}}" style="padding-left: 5px; padding-right: 10px;" target="_blank">https://{{$data['url']}}</a>for confirmation directly~~~</div>
     <div class="thx">
         Thanks!
     </div>

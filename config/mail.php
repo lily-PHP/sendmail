@@ -15,12 +15,14 @@ $conf = [
     'srilanka' => [
         'driver' => 'smtp',
         'host' => 'smtp.163.com',
-        'port' => 25,
+        'port' => 465,
+//        'port' => 25,
         'from' => [
             'address' => 'lilyphpteam@163.com',
             'name' => 'Mall Team',
         ],
-        'encryption' => 'tls',
+        'encryption' => 'ssl',
+//        'encryption' => 'tls',
         'username' => 'lilyphpteam@163.com',
         'password' => 'Alice2020',
         'sendmail' => '/usr/sbin/sendmail -bs',

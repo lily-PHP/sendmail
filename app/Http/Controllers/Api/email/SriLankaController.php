@@ -14,7 +14,7 @@ class SriLankaController extends EmailController
     {
         $uri = '/srilanka/purchase';
         $info = [
-            'view'  =>  'srilankapurchase',
+            'view'  =>  'verifyaccount',
             'title' =>  'Verify your Mall Account'
         ];
         $this->sendMail($uri, $info);

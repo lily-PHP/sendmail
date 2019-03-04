@@ -88,12 +88,12 @@ class EmailController extends Controller
                     foreach ($mq_data as $k=>$v){
                         $mqList[$k] = empty($v)? 'null' : $v;
                     }
-//                    $mqList = ['toMail'=>'lihaiyandejia@sina.com', 'content' => '测试测试~~~test test ~~~'];
-
+//                    var_dump($mqList); die;
+                    $mailContent = ['toName' => $mqList['toName'], 'url' => $mqList['content']];
                     if(!Mail::to($mqList['toMail'])->send(new baseEmail([
                         'view'=> $info['view'],
                         'title'=> $info['title'],
-                        'content'=>$mqList['content']
+                        'content'=>$mailContent
 //                        'content'=>json_decode($mqList['content'])
                     ]))){
 //                        dd(Mail::failures());die;

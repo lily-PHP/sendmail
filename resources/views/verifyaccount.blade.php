@@ -47,7 +47,7 @@
 </style>
 <body>
 <div class="big_box">
-    <div class="title">Hi xxx</div>
+    <div class="title">Hi {{$data['toName']}}</div>
     <div class="first_line">
         Thanks for applying for a Mall account.
     </div>
@@ -56,7 +56,7 @@
     </div>
     <a href="#"><button class="btn">Confirm your email</button></a>
     <div class="note">please note: this confirmation only valid within 24 hours!!!</div>
-    <div class="note2">if the above button doesn't work, please use this link: <a href="#" style="padding-left: 5px; padding-right: 10px;">https://xxxx.com</a>for confirmation directly~~~</div>
+    <div class="note2">if the above button doesn't work, please use this link: <a href="{{$data['url']}}" style="padding-left: 5px; padding-right: 10px;">{{$data['url']}}</a>for confirmation directly~~~</div>
     <div class="thx">
         Thanks!
     </div>

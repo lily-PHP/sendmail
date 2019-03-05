@@ -20,6 +20,17 @@ class SriLankaController extends EmailController
         $this->sendMail($uri, $info);
     }
 
+    public function resetPass()
+    {
+        $uri = '/srilanka/resetpass';
+        $info = [
+            'view'  =>  'resetpass',
+            'title' =>  'Reset Password'
+        ];
+        $this->sendMail($uri, $info);
+
+    }
+
 
     /*
      * 订单确认
@@ -36,7 +47,7 @@ class SriLankaController extends EmailController
 
     public function testRedis(Request $request)
     {
-        return view('verifyaccount', ['data' =>['toName' => 'lily', 'url'=> 'www.srilankashop.top/user/validate?token=a608c50c83191a9be69c355ff5dea261']]);
+        return view('resetpass', ['data' =>['toName' => 'lily', 'url'=> 'www.srilankashop.top/user/validate?token=a608c50c83191a9be69c355ff5dea261']]);
 //        $data = $request -> input();
 //        return $data;
 

@@ -28,7 +28,7 @@ class InterfaceMiddleware
     private $projectId = ['erp.website.com', 'zehui.advert.website.com'];
 
     // 允许跨域的服务器
-    private $domain = ['ze-hui.com', 'otest08.com', 'otest02.com'];
+    private $domain = ['ze-hui.com', 'otest08.com', 'otest02.com', 'srilankashop.top'];
 
     // 特定字符串
     private $str = 'ghs5dxd4a1xzd5fz4a';

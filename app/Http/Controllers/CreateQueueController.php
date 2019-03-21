@@ -30,7 +30,7 @@ class CreateQueueController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware(['Interface']);
+        $this->middleware(['Interface']);
     }
 
 

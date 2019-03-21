@@ -43,11 +43,18 @@ class InterfaceMiddleware
      */
     public function handle($request, Closure $next)
     {
+        $log = new Logger('InterfaceMiddleware.handle');
+        $log->pushHandler(new StreamHandler(storage_path('/logs/handle'.date('Ymd').'.log')));
+
         $head = [];
         $reqData = $request->input('data');
+        $log->info('$reqData~~~~~~'.$reqData);
+
         $reqData = json_decode($reqData);
         $p_id = $time = $nonce = $sign = false;
         $s_name = $r_uri = false;
+        $log->info('$_SERVER~~~~~~~~'.json_encode($_SERVER));
+
         foreach ($_SERVER as $k=>$v){
             if($k == 'SERVER_NAME'){
                 $s_n = explode('.', $v);
@@ -67,27 +74,33 @@ class InterfaceMiddleware
             };
         }
 
-//        if(!in_array($s_name, $this->domain)){
-//            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
-//            exit();
-//        }
-//
-//        if(count($head) != 3){
-//            echo '缺少必要的参数!';
-//            exit();
-//        }
-//
-//        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
-//            return $ret = '不合法的请求来源.';
-//        }
-//
-//        if(!$time || empty($time) || ($time - time()) > 10){
-//            return $ret = '请求超时.';
-//        }
-//
-//        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
-//            return $ret = '无效的签名.';
-//        };
+        if(!in_array($s_name, $this->domain)){
+            $log->info('$s_name~~~~~~'.$s_name);
+            $log->info('当前域名不在允许的跨域范围内');
+            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
+            exit();
+        }
+
+        if(count($head) != 3){
+            $log->info('缺少必要的参数');
+            echo '缺少必要的参数!';
+            exit();
+        }
+
+        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
+            $log->info('不合法的请求来源~~~~~'.$p_id);
+            return $ret = '不合法的请求来源.';
+        }
+
+        if(!$time || empty($time) || ($time - time()) > 10){
+            $log->info('请求超时~~~~'.$time);
+            return $ret = '请求超时.';
+        }
+
+        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
+            $log->info('无效的签名~~~~~~~~'.$sign);
+            return $ret = '无效的签名.';
+        };
 
         return $next($request);
     }

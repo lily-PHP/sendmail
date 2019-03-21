@@ -67,27 +67,27 @@ class InterfaceMiddleware
             };
         }
 
-        if(!in_array($s_name, $this->domain)){
-            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
-            exit();
-        }
-
-        if(count($head) != 3){
-            echo '缺少必要的参数!';
-            exit();
-        }
-
-        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
-            return $ret = '不合法的请求来源.';
-        }
-
-        if(!$time || empty($time) || ($time - time()) > 10){
-            return $ret = '请求超时.';
-        }
-
-        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
-            return $ret = '无效的签名.';
-        };
+//        if(!in_array($s_name, $this->domain)){
+//            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
+//            exit();
+//        }
+//
+//        if(count($head) != 3){
+//            echo '缺少必要的参数!';
+//            exit();
+//        }
+//
+//        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
+//            return $ret = '不合法的请求来源.';
+//        }
+//
+//        if(!$time || empty($time) || ($time - time()) > 10){
+//            return $ret = '请求超时.';
+//        }
+//
+//        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
+//            return $ret = '无效的签名.';
+//        };
 
         return $next($request);
     }

@@ -94,12 +94,12 @@ class InterfaceMiddleware
             echo '缺少必要的参数!';
             exit();
         }
-//
-//        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
-//            $log->info('不合法的请求来源~~~~~'.$p_id);
-//            file_put_contents($path.'handle'.date('Ymd').'.log', '6、不合法的请求来源~~~~~~~~~'.$p_id. "\n\n",FILE_APPEND);
-//            return $ret = '不合法的请求来源.';
-//        }
+
+        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
+            $log->info('不合法的请求来源~~~~~'.$p_id);
+            file_put_contents($path.'handle'.date('Ymd').'.log', '6、不合法的请求来源~~~~~~~~~'.$p_id. "\n\n",FILE_APPEND);
+            return $ret = '不合法的请求来源.';
+        }
 //
 //        if(!$time || empty($time) || ($time - time()) > 10){
 //            $log->info('请求超时~~~~'.$time);

@@ -56,7 +56,7 @@ class InterfaceMiddleware
         file_put_contents($path.'handle'.date('Ymd').'.log', '2、$reqData~~~~~~~~~'.$reqData. "\n\n",FILE_APPEND);
 
 
-        $reqData = json_decode($reqData);
+//        $reqData = json_decode($reqData);
         $p_id = $time = $nonce = $sign = false;
         $s_name = $r_uri = false;
         $log->info('$_SERVER~~~~~~~~'.json_encode($_SERVER));

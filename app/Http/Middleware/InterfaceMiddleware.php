@@ -51,7 +51,6 @@ class InterfaceMiddleware
 
         $head = [];
         $reqData = $request->input('data');
-//        $reqData = $request->input();
         $log->info('$reqData~~~~~~'.json_encode($reqData));
         file_put_contents($path.'handle'.date('Ymd').'.log', '2、$reqData~~~~~~~~~'.json_encode($reqData). "\n\n",FILE_APPEND);
 
@@ -98,25 +97,22 @@ class InterfaceMiddleware
         if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
             $log->info('不合法的请求来源~~~~~'.$p_id);
             file_put_contents($path.'handle'.date('Ymd').'.log', '6、不合法的请求来源~~~~~~~~~'.$p_id. "\n\n",FILE_APPEND);
-            return $ret = '不合法的请求来源.';
+            echo '不合法的请求来源.';
+            exit();
         }
 
         if(!$time || empty($time) || ($time - time()) > 10){
             $log->info('请求超时~~~~'.$time);
             file_put_contents($path.'handle'.date('Ymd').'.log', '7、请求超时~~~~~~~~~'.$time. "\n\n",FILE_APPEND);
-            return $ret = '请求超时.';
+            echo '请求超时.';
+            exit();
         }
 
         if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
             $log->info('无效的签名~~~~~~~~'.$sign);
             file_put_contents($path.'handle'.date('Ymd').'.log', '8、无效的签名~~~~~~~~~'.$sign. "\n\n",FILE_APPEND);
-//            return $ret = '无效的签名.';
-            echo 'pid=='.$p_id."\n\n";
-            echo 'str=='.$this->str."\n\n";
-            echo gettype($reqData)."\n\n";
-            echo $sign."\n\n";
-            echo 'sign=='.md5($this->str.json_encode($reqData).$p_id)."\n\n";
-            echo 'data=='.json_encode($reqData)."\n\n"; exit();
+            echo '无效的签名.';
+            exit();
         };
 
         return $next($request);

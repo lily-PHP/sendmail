@@ -2,6 +2,7 @@
 
 
 Route::any('/srilanka/purchase', 'Api\email\SriLankaController@purchase');
+Route::any('/srilanka/verifymail', 'Api\email\SriLankaController@verifyMail');
 Route::any('/srilanka/resetpass', 'Api\email\SriLankaController@resetPass');
 Route::any('/srilanka/confirm', 'Api\email\SriLankaController@confirm');
 

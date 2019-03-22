@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class SriLankaController extends EmailController
 {
     /*
-     * 下单
+     * 激活注册邮箱
      */
-    public function purchase()
+    public function verifyMail()
     {
-        $uri = '/srilanka/purchase';
+        $uri = '/srilanka/verifymail';
         $info = [
             'view'  =>  'verifyaccount',
             'title' =>  'Verify your Mall Account'
@@ -20,6 +20,9 @@ class SriLankaController extends EmailController
         $this->sendMail($uri, $info);
     }
 
+    /*
+     * 找回密码
+     */
     public function resetPass()
     {
         $uri = '/srilanka/resetpass';
@@ -29,6 +32,19 @@ class SriLankaController extends EmailController
         ];
         $this->sendMail($uri, $info);
 
+    }
+
+    /*
+     * 下单
+     */
+    public function purchase()
+    {
+        $uri = '/srilanka/purchase';
+        $info = [
+            'view'  =>  'srilankapurchase',
+            'title' =>  'FACEBOOK PURCHASE ORDER INFORMATION'
+        ];
+        $this->sendMail($uri, $info);
     }
 
 
@@ -45,16 +61,5 @@ class SriLankaController extends EmailController
         $this->sendMail($uri, $info);
     }
 
-    public function testRedis(Request $request)
-    {
-        echo '<pre/>';
-        var_dump($_SERVER);
-//        return view('resetpass', ['data' =>['toName' => 'lily', 'url'=> 'www.srilankashop.top/user/validate?token=a608c50c83191a9be69c355ff5dea261']]);
-//        $data = $request -> input();
-//        return $data;
 
-
-//        $redis = app('redis.connection');
-//        echo '<pre/>'; var_dump($redis);
-    }
 }

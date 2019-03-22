@@ -49,28 +49,15 @@ class CreateQueueController extends Controller
 
         $data = json_decode($data);
 
-
         $toMail = $data->toMail;        // 接收人邮箱
         $api = $data->api;              // api
-//        $area = $data->area;            // 地区
         $toName = $data->toName;        // 收件人
         $content = $data->content;      // 发件内容
-
-//        $toMail = $data['toMail'];        // 接收人邮箱
-//        $api = $data['api'];              // api
-////        $area = $data->area;            // 地区
-//        $toName = $data['toName'];        // 收件人
-//        $content = $data['content'];      // 发件内容
 
         if(empty($toMail)){
             $ret['msg'] = '收件人邮箱不能为空';
             return $ret;
         }
-
-//        if(empty($area)){
-//            $ret['msg'] = '通知区域不能为空';
-//            return $ret;
-//        }
 
         if(empty($toName)){
             $ret['msg'] = '收件人不能为空';

@@ -114,6 +114,7 @@ class InterfaceMiddleware
             echo 'pid=='.$p_id."\n\n";
             echo 'str=='.$this->str."\n\n";
             echo gettype($reqData)."\n\n";
+            echo $sign."\n\n";
             echo 'sign=='.md5($this->str.json_encode($reqData).$p_id)."\n\n";
             echo 'data=='.json_encode($reqData)."\n\n"; exit();
         };

@@ -100,12 +100,12 @@ class InterfaceMiddleware
             file_put_contents($path.'handle'.date('Ymd').'.log', '6、不合法的请求来源~~~~~~~~~'.$p_id. "\n\n",FILE_APPEND);
             return $ret = '不合法的请求来源.';
         }
-//
-//        if(!$time || empty($time) || ($time - time()) > 10){
-//            $log->info('请求超时~~~~'.$time);
-//            file_put_contents($path.'handle'.date('Ymd').'.log', '7、请求超时~~~~~~~~~'.$time. "\n\n",FILE_APPEND);
-//            return $ret = '请求超时.';
-//        }
+
+        if(!$time || empty($time) || ($time - time()) > 10){
+            $log->info('请求超时~~~~'.$time);
+            file_put_contents($path.'handle'.date('Ymd').'.log', '7、请求超时~~~~~~~~~'.$time. "\n\n",FILE_APPEND);
+            return $ret = '请求超时.';
+        }
 //
 //        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
 //            $log->info('无效的签名~~~~~~~~'.$sign);

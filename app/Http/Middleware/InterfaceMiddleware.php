@@ -80,38 +80,38 @@ class InterfaceMiddleware
             };
         }
 
-//        if(!in_array($s_name, $this->domain)){
-//            $log->info('$s_name~~~~~~'.$s_name);
-//            $log->info('当前域名不在允许的跨域范围内');
-//            file_put_contents($path.'handle'.date('Ymd').'.log', '4、当前域名不在允许的跨域范围内~~~~~~~~~'.$s_name. "\n\n",FILE_APPEND);
-//            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
-//            exit();
-//        }
-
-        if(count($head) != 3){
-            $log->info('缺少必要的参数');
-            file_put_contents($path.'handle'.date('Ymd').'.log', '5、缺少必要的参数~~~~~~~~~'. "\n\n",FILE_APPEND);
-            echo '缺少必要的参数!';
+        if(!in_array($s_name, $this->domain)){
+            $log->info('$s_name~~~~~~'.$s_name);
+            $log->info('当前域名不在允许的跨域范围内');
+            file_put_contents($path.'handle'.date('Ymd').'.log', '4、当前域名不在允许的跨域范围内~~~~~~~~~'.$s_name. "\n\n",FILE_APPEND);
+            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
             exit();
         }
 
-        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
-            $log->info('不合法的请求来源~~~~~'.$p_id);
-            file_put_contents($path.'handle'.date('Ymd').'.log', '6、不合法的请求来源~~~~~~~~~'.$p_id. "\n\n",FILE_APPEND);
-            return $ret = '不合法的请求来源.';
-        }
-
-        if(!$time || empty($time) || ($time - time()) > 10){
-            $log->info('请求超时~~~~'.$time);
-            file_put_contents($path.'handle'.date('Ymd').'.log', '7、请求超时~~~~~~~~~'.$time. "\n\n",FILE_APPEND);
-            return $ret = '请求超时.';
-        }
-
-        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
-            $log->info('无效的签名~~~~~~~~'.$sign);
-            file_put_contents($path.'handle'.date('Ymd').'.log', '8、无效的签名~~~~~~~~~'.$sign. "\n\n",FILE_APPEND);
-            return $ret = '无效的签名.';
-        };
+//        if(count($head) != 3){
+//            $log->info('缺少必要的参数');
+//            file_put_contents($path.'handle'.date('Ymd').'.log', '5、缺少必要的参数~~~~~~~~~'. "\n\n",FILE_APPEND);
+//            echo '缺少必要的参数!';
+//            exit();
+//        }
+//
+//        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
+//            $log->info('不合法的请求来源~~~~~'.$p_id);
+//            file_put_contents($path.'handle'.date('Ymd').'.log', '6、不合法的请求来源~~~~~~~~~'.$p_id. "\n\n",FILE_APPEND);
+//            return $ret = '不合法的请求来源.';
+//        }
+//
+//        if(!$time || empty($time) || ($time - time()) > 10){
+//            $log->info('请求超时~~~~'.$time);
+//            file_put_contents($path.'handle'.date('Ymd').'.log', '7、请求超时~~~~~~~~~'.$time. "\n\n",FILE_APPEND);
+//            return $ret = '请求超时.';
+//        }
+//
+//        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
+//            $log->info('无效的签名~~~~~~~~'.$sign);
+//            file_put_contents($path.'handle'.date('Ymd').'.log', '8、无效的签名~~~~~~~~~'.$sign. "\n\n",FILE_APPEND);
+//            return $ret = '无效的签名.';
+//        };
 
         return $next($request);
     }

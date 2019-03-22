@@ -50,7 +50,8 @@ class InterfaceMiddleware
         file_put_contents($path.'handle'.date('Ymd').'.log', '1、开始进入中间件~~~~~~~~~'. "\n\n",FILE_APPEND);
 
         $head = [];
-        $reqData = $request->input('data');
+//        $reqData = $request->input('data');
+        $reqData = $request->input();
         $log->info('$reqData~~~~~~'.$reqData);
         file_put_contents($path.'handle'.date('Ymd').'.log', '2、$reqData~~~~~~~~~'.$reqData. "\n\n",FILE_APPEND);
 

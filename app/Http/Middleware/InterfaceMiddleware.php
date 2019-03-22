@@ -110,7 +110,8 @@ class InterfaceMiddleware
         if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
             $log->info('无效的签名~~~~~~~~'.$sign);
             file_put_contents($path.'handle'.date('Ymd').'.log', '8、无效的签名~~~~~~~~~'.$sign. "\n\n",FILE_APPEND);
-            return $ret = '无效的签名.';
+//            return $ret = '无效的签名.';
+            echo '无效的签名.'; exit();
         };
 
         return $next($request);

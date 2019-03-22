@@ -47,7 +47,9 @@ class SriLankaController extends EmailController
 
     public function testRedis(Request $request)
     {
-        return view('resetpass', ['data' =>['toName' => 'lily', 'url'=> 'www.srilankashop.top/user/validate?token=a608c50c83191a9be69c355ff5dea261']]);
+        echo '<pre/>';
+        var_dump($_SERVER);
+//        return view('resetpass', ['data' =>['toName' => 'lily', 'url'=> 'www.srilankashop.top/user/validate?token=a608c50c83191a9be69c355ff5dea261']]);
 //        $data = $request -> input();
 //        return $data;
 

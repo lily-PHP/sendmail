@@ -88,12 +88,12 @@ class InterfaceMiddleware
             exit();
         }
 
-//        if(count($head) != 3){
-//            $log->info('缺少必要的参数');
-//            file_put_contents($path.'handle'.date('Ymd').'.log', '5、缺少必要的参数~~~~~~~~~'. "\n\n",FILE_APPEND);
-//            echo '缺少必要的参数!';
-//            exit();
-//        }
+        if(count($head) != 3){
+            $log->info('缺少必要的参数');
+            file_put_contents($path.'handle'.date('Ymd').'.log', '5、缺少必要的参数~~~~~~~~~'. "\n\n",FILE_APPEND);
+            echo '缺少必要的参数!';
+            exit();
+        }
 //
 //        if(!$p_id || empty($p_id) || !in_array($p_id, $this->projectId)){
 //            $log->info('不合法的请求来源~~~~~'.$p_id);

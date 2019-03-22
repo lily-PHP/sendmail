@@ -45,6 +45,7 @@ class CreateQueueController extends Controller
         $ret = $this->ret;
 
         $data = $request->input();
+//        var_dump($data); die;
 //        $data = $request->input('data');
         $log->info('前端接收的数据$data~~~~~~~~~~~~~~~'.json_encode($data));
 

@@ -28,7 +28,7 @@ class InterfaceMiddleware
     private $projectId = ['erp.website.com', 'zehui.advert.website.com'];
 
     // 允许跨域的服务器
-    private $domain = ['ze-hui.com', 'otest08.com', 'otest02.com', 'srilankashop.top', 'lhydejia.site'];
+    private $domain = ['ze-hui.com', 'otest08.com', 'otest02.com', 'srilankashop.top', 'lhydejia.site', "sendmail.com"];
 
     // 特定字符串
     private $str = 'ghs5dxd4a1xzd5fz4a';
@@ -52,11 +52,9 @@ class InterfaceMiddleware
         $head = [];
 //        $reqData = $request->input('data');
         $reqData = $request->input();
-        $log->info('$reqData~~~~~~'.$reqData);
-        file_put_contents($path.'handle'.date('Ymd').'.log', '2、$reqData~~~~~~~~~'.$reqData. "\n\n",FILE_APPEND);
+        $log->info('$reqData~~~~~~'.json_encode($reqData));
+        file_put_contents($path.'handle'.date('Ymd').'.log', '2、$reqData~~~~~~~~~'.json_encode($reqData). "\n\n",FILE_APPEND);
 
-        echo '<pre/>';
-        var_dump(2333333); die;
 //        $reqData = json_decode($reqData);
         $p_id = $time = $nonce = $sign = false;
         $s_name = $r_uri = false;
@@ -109,7 +107,7 @@ class InterfaceMiddleware
             return $ret = '请求超时.';
         }
 
-        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData).$p_id)){
+        if(!$sign || empty($sign) || $sign != md5($this->str.json_encode($reqData[0]).$p_id)){
             $log->info('无效的签名~~~~~~~~'.$sign);
             file_put_contents($path.'handle'.date('Ymd').'.log', '8、无效的签名~~~~~~~~~'.$sign. "\n\n",FILE_APPEND);
             return $ret = '无效的签名.';

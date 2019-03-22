@@ -44,26 +44,23 @@ class CreateQueueController extends Controller
 
         $ret = $this->ret;
 
-//        $data = $request->input();
-//        return $data;
-//        var_dump($data); die;
         $data = $request->input('data');
         $log->info('前端接收的数据$data~~~~~~~~~~~~~~~'.json_encode($data));
 
-//        $data = json_decode($data);
+        $data = json_decode($data);
 
 
-//        $toMail = $data->toMail;        // 接收人邮箱
-//        $api = $data->api;              // api
-////        $area = $data->area;            // 地区
-//        $toName = $data->toName;        // 收件人
-//        $content = $data->content;      // 发件内容
-
-        $toMail = $data['toMail'];        // 接收人邮箱
-        $api = $data['api'];              // api
+        $toMail = $data->toMail;        // 接收人邮箱
+        $api = $data->api;              // api
 //        $area = $data->area;            // 地区
-        $toName = $data['toName'];        // 收件人
-        $content = $data['content'];      // 发件内容
+        $toName = $data->toName;        // 收件人
+        $content = $data->content;      // 发件内容
+
+//        $toMail = $data['toMail'];        // 接收人邮箱
+//        $api = $data['api'];              // api
+////        $area = $data->area;            // 地区
+//        $toName = $data['toName'];        // 收件人
+//        $content = $data['content'];      // 发件内容
 
         if(empty($toMail)){
             $ret['msg'] = '收件人邮箱不能为空';

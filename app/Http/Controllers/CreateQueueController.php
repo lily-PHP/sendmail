@@ -30,7 +30,7 @@ class CreateQueueController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware(['Interface']);
+        $this->middleware(['Interface']);
     }
 
 
@@ -46,7 +46,7 @@ class CreateQueueController extends Controller
 
         $data = $request->input();
 //        return $data;
-        var_dump($data); die;
+//        var_dump($data); die;
 //        $data = $request->input('data');
         $log->info('前端接收的数据$data~~~~~~~~~~~~~~~'.json_encode($data));
 

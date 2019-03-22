@@ -112,10 +112,9 @@ class InterfaceMiddleware
             file_put_contents($path.'handle'.date('Ymd').'.log', '8、无效的签名~~~~~~~~~'.$sign. "\n\n",FILE_APPEND);
 //            return $ret = '无效的签名.';
             echo 'pid=='.$p_id."\n\n";
-            echo 'str=='.$this->str; exit();
-//            echo md5($this->str.json_encode($reqData).$p_id)."\n\n";
-//            echo json_encode($reqData)."\n\n"; exit();
-//            echo json_encode($reqData); exit();
+            echo 'str=='.$this->str."\n\n";
+            echo 'sign=='.md5($this->str.json_encode($reqData).$p_id)."\n\n";
+            echo 'data=='.json_encode($reqData)."\n\n"; exit();
         };
 
         return $next($request);

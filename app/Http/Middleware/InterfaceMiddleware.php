@@ -80,13 +80,13 @@ class InterfaceMiddleware
             };
         }
 
-        if(!in_array($s_name, $this->domain)){
-            $log->info('$s_name~~~~~~'.$s_name);
-            $log->info('当前域名不在允许的跨域范围内');
-            file_put_contents($path.'handle'.date('Ymd').'.log', '4、当前域名不在允许的跨域范围内~~~~~~~~~'.$s_name. "\n\n",FILE_APPEND);
-            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
-            exit();
-        }
+//        if(!in_array($s_name, $this->domain)){
+//            $log->info('$s_name~~~~~~'.$s_name);
+//            $log->info('当前域名不在允许的跨域范围内');
+//            file_put_contents($path.'handle'.date('Ymd').'.log', '4、当前域名不在允许的跨域范围内~~~~~~~~~'.$s_name. "\n\n",FILE_APPEND);
+//            echo '当前域名不在允许的跨域范围内:::::'.$s_name;
+//            exit();
+//        }
 
         if(count($head) != 3){
             $log->info('缺少必要的参数');

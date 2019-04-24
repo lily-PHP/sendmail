@@ -47,18 +47,18 @@ class InterfaceMiddleware
         $log->pushHandler(new StreamHandler(storage_path('/logs/handle'.date('Ymd').'.log')));
 
         $path = storage_path().'/logs/';
-        file_put_contents($path.'handle'.date('Ymd').'.log', '1、开始进入中间件~~~~~~~~~'. "\n\n",FILE_APPEND);
+//        file_put_contents($path.'handle'.date('Ymd').'.log', '1、开始进入中间件~~~~~~~~~'. "\n\n",FILE_APPEND);
 
         $head = [];
         $reqData = $request->input('data');
         $log->info('$reqData~~~~~~'.json_encode($reqData));
-        file_put_contents($path.'handle'.date('Ymd').'.log', '2、$reqData~~~~~~~~~'.json_encode($reqData). "\n\n",FILE_APPEND);
+//        file_put_contents($path.'handle'.date('Ymd').'.log', '2、$reqData~~~~~~~~~'.json_encode($reqData). "\n\n",FILE_APPEND);
 
         $reqData = json_decode($reqData);
         $p_id = $time = $nonce = $sign = false;
         $s_name = $r_uri = false;
         $log->info('$_SERVER~~~~~~~~'.json_encode($_SERVER));
-        file_put_contents($path.'handle'.date('Ymd').'.log', '3、$_SERVER~~~~~~~~~'.json_encode($_SERVER, 320)."\n\n",FILE_APPEND);
+//        file_put_contents($path.'handle'.date('Ymd').'.log', '3、$_SERVER~~~~~~~~~'.json_encode($_SERVER, 320)."\n\n",FILE_APPEND);
 
         foreach ($_SERVER as $k=>$v){
             if($k == 'SERVER_NAME'){

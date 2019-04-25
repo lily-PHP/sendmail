@@ -47,7 +47,7 @@
 </style>
 <body>
 <div class="big_box">
-    <div class="title">Hi {{$data['toName']}}</div>
+    <div class="title">Dear Customer</div>
     <div class="first_line">
         You're applying the password RESET function.
     </div>

@@ -35,6 +35,22 @@ class SriLankaController extends EmailController
     }
 
     /*
+     * ABC-kids亚马逊推广页 发送优惠码
+     */
+    public function getCoupon()
+    {
+//        return view('getcoupon'); die;
+        $uri = 'srilanka/getcoupon';
+        $info = [
+            'view'  =>  'getcoupon',
+            'title' =>  'ABC KIDS store COUPON'
+        ];
+        $this -> sendMail($uri, $info);
+
+    }
+
+
+    /*
      * 下单
      */
     public function purchase()

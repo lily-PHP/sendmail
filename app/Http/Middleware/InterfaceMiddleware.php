@@ -46,6 +46,13 @@ class InterfaceMiddleware
         $log = new Logger('InterfaceMiddleware.handle');
         $log->pushHandler(new StreamHandler(storage_path('/logs/handle'.date('Ymd').'.log')));
 
+        if($_SERVER['REQUEST_METHOD'] == 'OPTIONS'){
+            header('Access-Control-Allow-Origin:*'); // 允许所有域名跨域
+            header('Access-Control-Allow-Methods:POST,OPTIONS');
+            header('Access-Control-Allow-Headers:x-requested-with,content-type,HTTP_X_PROJECT_ID,HTTP_X_AUTH_SIGNATURE,HTTP_X_AUTH_TIMESTAMP');
+            $log -> info('option request::::::'.json_encode($_REQUEST, 320));
+        }
+
         $path = storage_path().'/logs/';
 //        file_put_contents($path.'handle'.date('Ymd').'.log', '1、开始进入中间件~~~~~~~~~'. "\n\n",FILE_APPEND);
 

@@ -7,7 +7,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 header('Access-Control-Allow-Origin:*'); // 允许所有域名跨域
-header('Access-Control-Allow-Methods:POST');
+header('Access-Control-Allow-Methods:POST,OPTIONS');
 header('Access-Control-Allow-Headers:x-requested-with,content-type,HTTP_X_PROJECT_ID,HTTP_X_AUTH_SIGNATURE,HTTP_X_AUTH_TIMESTAMP');
 
 class InterfaceMiddleware

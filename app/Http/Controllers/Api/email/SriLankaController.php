@@ -39,8 +39,7 @@ class SriLankaController extends EmailController
      */
     public function getCoupon()
     {
-//        return view('getcoupon'); die;
-        $uri = 'srilanka/getcoupon';
+        $uri = '/srilanka/getcoupon';
         $info = [
             'view'  =>  'getcoupon',
             'title' =>  'ABC KIDS store COUPON'

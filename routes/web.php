@@ -6,7 +6,6 @@ Route::any('/srilanka/verifymail', 'Api\email\SriLankaController@verifyMail');
 Route::any('/srilanka/resetpass', 'Api\email\SriLankaController@resetPass');
 Route::any('/srilanka/getcoupon', 'Api\email\SriLankaController@getCoupon');
 Route::any('/srilanka/confirm', 'Api\email\SriLankaController@confirm');
-Route::any('/api/getmaildata', 'Api\email\apiController@getMailData');
 
 //测试Redis
 Route::any('/redis', 'Api\email\SriLankaController@testRedis');
